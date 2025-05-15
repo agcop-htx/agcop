@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Cathedral of Praise Assemblies of God Church" name="author"/>
+    <title>{% PAGE_TITLE %}</title>
+    
+    <meta name="robots" content="index,follow" />
+    <link rel="stylesheet" href="{% CSS_PATH %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic|Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic&amp;display=swap" rel="stylesheet" type="text/css" async="async" />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">Cathedral of Praise</span> Assemblies of God Church</h1>
+        </div>
+        <button class="menu-toggle">☰</button>
+        <nav>
+          <ul id="nav-menu">
+            <li class="{% HOME_ACTIVE %}"><a href="{% HOME_LINK %}">Home</a></li>
+            <li class="dropdown">
+              <a href="#">Worship</a>
+              <div class="dropdown-content">
+                <a href="{% MEET_LINK %}">Services</a>
+                <a href="{% WORSHIP_LINK %}">3rd Friday Singing</a>
+                <a href="{% SERMONS_LINK %}">Sermons</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="#">Community</a>
+              <div class="dropdown-content">
+                <a href="{% MINISTRY_LINK %}">Ministries</a>
+                <a href="{% MISSIONS_LINK %}">Missionary</a>
+                <a href="{% EVENTS_LINK %}">Events</a>
+                <a href="{% TEAM_LINK %}">Team</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="#">Give</a>
+              <div class="dropdown-content">
+                <a href="{% GIVE_LINK %}">Give</a>
+                <a href="{% VOLUNTEER_LINK %}">Volunteer</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="#">Contact Us</a>
+              <div class="dropdown-content">
+                <a href="{% PRAYER_LINK %}">Prayer</a>
+                <a href="{% CONTACT_LINK %}">Contact</a>
+                <a href="{% ABOUT_LINK %}">About</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    {% PAGE_CONTENT %}
+
+    <footer>
+      <p>Cathedral of Praise Assemblies of God Church &copy; 2023</p>
+      <p>11303 C E King Pkwy, Houston, TX 77044 | Phone: (281) 458-5290</p>
+    </footer>
+
+    <script>
+      document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.getElementById('nav-menu').classList.toggle('show');
+      });
+      
+      // For mobile dropdown menus
+      if (window.innerWidth <= 768) {
+        const dropdowns = document.querySelectorAll('.dropdown > a');
+        dropdowns.forEach(dropdown => {
+          dropdown.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.nextElementSibling.classList.toggle('show');
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

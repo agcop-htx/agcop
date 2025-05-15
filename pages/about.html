@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="Cathedral of Praise Assemblies of God Church" name="author"/>
   <title>
-    About | Cathedral of Praise Assemblies of God Church
+    about | Cathedral of Praise Assemblies of God Church
   </title>
   
   <meta name="robots" content="index,follow" />
@@ -20,20 +20,46 @@
       <div id="branding">
         <h1><span class="highlight">Cathedral of Praise</span> Assemblies of God Church</h1>
       </div>
+      <button class="menu-toggle">☰</button>
       <nav>
-        <ul>
+        <ul id="nav-menu">
           <li><a href="../index.html">Home</a></li>
-          <li class="current"><a href="about.html">About</a></li>
-          <li><a href="sermons.html">Sermons</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="ministry.html">Ministries</a></li>
-          <li><a href="give.html">Give</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li class="dropdown">
+            <a href="#">Worship</a>
+            <div class="dropdown-content">
+              <a href="../pages/meet.html">Services</a>
+              <a href="../pages/worship.html">3rd Friday Singing</a>
+              <a href="../pages/sermons.html">Sermons</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Community</a>
+            <div class="dropdown-content">
+              <a href="../pages/ministry.html">Ministries</a>
+              <a href="../pages/missions.html">Missionary</a>
+              <a href="../pages/events.html">Events</a>
+              <a href="../pages/team.html">Team</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Give</a>
+            <div class="dropdown-content">
+              <a href="../pages/give.html">Give</a>
+              <a href="../pages/volunteer.html">Volunteer</a>
+            </div>
+          </li>
+          <li class="dropdown current">
+            <a href="#">Contact Us</a>
+            <div class="dropdown-content">
+              <a href="../pages/prayer.html">Prayer</a>
+              <a href="../pages/contact.html">Contact</a>
+              <a href="../pages/about.html" class="current">About</a>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
   </header>
-
   <section id="newsletter">
     <div class="container">
       <h1>Subscribe To Our Newsletter</h1>
@@ -76,16 +102,33 @@
         <div class="dark">
           <h3>Our Pastor</h3>
           <img src="../res/ronnie.png" alt="Pastor Ronnie Jordan">
-          <p>Rev. Ronnie Jordan has been serving as the lead pastor of Cathedral of Praise since 2000. He is passionate about teaching God's Word and helping people grow in their relationship with Jesus Christ.</p>
-          <p>Pastor Ronnie has 3 children and has been serving in ministry for over 40 years.</p>
+          <p>Rev. Ronnie Jordan has been serving as the lead pastor of Cathedral of Praise since [year]. He is passionate about teaching God's Word and helping people grow in their relationship with Jesus Christ.</p>
+          <p>Pastor Ronnie and his wife [spouse name] have [number] children and have been serving in ministry for over [number] years.</p>
         </div>
       </aside>
     </div>
   </section>
 
   <footer>
+  <footer>
     <p>Cathedral of Praise Assemblies of God Church &copy; 2023</p>
     <p>11303 C E King Pkwy, Houston, TX 77044 | Phone: (281) 458-5290</p>
   </footer>
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.getElementById('nav-menu').classList.toggle('show');
+    });
+    
+    // For mobile dropdown menus
+    if (window.innerWidth <= 768) {
+      const dropdowns = document.querySelectorAll('.dropdown > a');
+      dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) {
+          e.preventDefault();
+          this.nextElementSibling.classList.toggle('show');
+        });
+      });
+    }
+  </script>
 </body>
 </html>

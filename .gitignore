@@ -1,0 +1,4 @@
+fix_all_pages.sh
+update_all_pages.sh
+.env
+.env/*

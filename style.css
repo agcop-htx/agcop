@@ -21,6 +21,7 @@ header {
   padding-top: 30px;
   min-height: 70px;
   border-bottom: #e8491d 3px solid;
+  position: relative;
 }
 
 header a {
@@ -34,6 +35,7 @@ header li {
   float: left;
   display: inline;
   padding: 0 20px 0 20px;
+  position: relative;
 }
 
 header #branding {
@@ -59,10 +61,51 @@ header a:hover {
   font-weight: bold;
 }
 
+/* Dropdown Menu Styles */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #35424a;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  left: 0;
+  top: 100%;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #444;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Mobile Menu Styles */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
 /* Showcase */
 #showcase {
   min-height: 400px;
-  background: url('../res/agcop-out.jpg') no-repeat center;
+  background: url('res/agcop-out.jpg') no-repeat center;
   background-size: cover;
   text-align: center;
 }
@@ -71,10 +114,16 @@ header a:hover {
   margin-top: 100px;
   font-size: 55px;
   margin-bottom: 10px;
+  color: #e8491d;
 }
 
 #showcase p {
   font-size: 20px;
+  color: #ffffff;
+}
+
+#showcase img {
+    max-width: 100%;
 }
 
 /* Newsletter */
@@ -145,6 +194,16 @@ footer {
   text-align: center;
 }
 
+/* Button styles */
+.button_1 {
+  height: 38px;
+  background: #e8491d;
+  border: none;
+  padding: 0 20px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
 /* Media Queries */
 @media(max-width: 768px) {
   header #branding,
@@ -162,6 +221,56 @@ footer {
 
   header {
     padding-bottom: 20px;
+  }
+
+  /* Mobile menu styles */
+  .menu-toggle {
+    display: block;
+  }
+  
+  header nav ul {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 60px;
+  }
+  
+  header nav ul.show {
+    display: flex;
+  }
+  
+  header nav li {
+    float: none;
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+  }
+  
+  header nav {
+    float: none;
+    width: 100%;
+    position: relative;
+  }
+
+  /* Mobile dropdown styles */
+  .dropdown-content {
+    position: static;
+    display: none;
+    width: 100%;
+    box-shadow: none;
+    background-color: #444;
+  }
+  
+  .dropdown-content.show {
+    display: block;
+  }
+  
+  .dropdown-toggle {
+    display: inline-block;
+    margin-left: 5px;
+    cursor: pointer;
   }
 
   #showcase h1 {
